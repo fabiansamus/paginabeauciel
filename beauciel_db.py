@@ -10,35 +10,36 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+
 class User(Base):
 	__tablename__ = 'user'
 
 	id = Column(Integer, primary_key=True)
-    name = Column(String(250), nullable=False)
-    last_name = Column(String(250), nullable=False)
-    email = Column(String(250), nullable=False)
-    fecha_nacimiento = Column(Date, default=func.now())
-    telefono = Column(Integer, nullable=False)
+	name = Column(String(250), nullable=False)
+	last_name = Column(String(250), nullable=False)
+	email = Column(String(250), nullable=False)
+	fecha_nacimiento = Column(Date, default=func.now())
+	telefono = Column(Integer, nullable=False)
 
 
 class Ficha(Base):
 	__tablename__ = 'Ficha'
 
 	id = Column(Integer,ForeignKey(User.id), primary_key=True)
-    tipo_sangre = Column(String(2), nullable=False)
-    peso = Column(String(20), nullable=False)
-    notas = Column(String(250), nullable=False)
+	tipo_sangre = Column(String(2), nullable=False)
+	peso = Column(String(20), nullable=False)
+	notas = Column(String(250), nullable=False)
 
 class Trabajo(Base):
 	__tablename__ = 'Trabajo'
 
 	id = Column(Integer, primary_key=True)
-    tipo = Column(String(250), nullable=False)
-    duracion_secion = Column(String(250), nullable=False)
-    seciones = Column(String(250), nullable=False)
-    fecha_inicio = Column(Date, default=func.now())
-    precio = Column(Integer, nullable=False)
-    nombre = Column(String(250), nullable=False)
+	tipo = Column(String(250), nullable=False)
+	duracion_secion = Column(String(250), nullable=False)
+	seciones = Column(String(250), nullable=False)
+	fecha_inicio = Column(Date, default=func.now())
+	precio = Column(Integer, nullable=False)
+	nombre = Column(String(250), nullable=False)
 
 class Secion(Base):
 	__tablename__ = 'Secion'
@@ -74,9 +75,9 @@ class Deposito(Base):
 
 	id = Column( primary_key=True)
 	total = Column(Integer,nullable=False)
-    abono = Column(Integer, nullable=False)
-    pendiente = Column(Integer,nullable=False)
-    notas = Column(String(250), nullable=False)
+	abono = Column(Integer, nullable=False)
+	pendiente = Column(Integer,nullable=False)
+	notas = Column(String(250), nullable=False)
 	id_persona = Column(Integer, ForeignKey(User.id))
 	id_secion = Column(Integer, ForeignKey(Secion.id))
 
