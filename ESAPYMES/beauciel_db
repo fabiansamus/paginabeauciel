@@ -1,0 +1,74 @@
+import sys
+
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, func, Unicode, Date#, LONGBLOB
+
+from sqlalchemy.ext.declarative import declarative_base
+
+from sqlalchemy.orm import relationship
+
+from sqlalchemy import create_engine
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'user'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    apellido = Column(String(250), nullable=False)
+    telefono = Column(Integer(10), nullable=False)
+	email = Column(String(250), nullable=False)
+	birht = Column(String(10),nullable=False)
+
+class ficha(Base):
+	"""docstring for ficha"""
+	__tablename__="ficha"
+
+	id = Column(Integer, primary_key=True)
+	tipo_desangre = Column(String(3), nullable=True)
+	peso = Column(String)
+	efenmedades= Column(String)
+	profecion = Column(String)
+	tipo_de_piel = Column(String)
+	nota = Column(String)
+
+			
+
+class trabajo(Base):
+	"""docstring for trabajo"""
+	__tablename__="trabajo"
+
+	tipo= Column(String)
+	duracion_secion=Column(String)
+	seciones =Column(String)
+	precio=Column(Integer )
+	id_trabajo=Column(int )
+	nombre = Column(String )
+
+class fecha_secion(Base):
+	"""docstring for fecha_secion"""
+	fecha_secion=Date
+	persona_id=
+	nota=
+	id_secion=
+	seciones_restantes=
+	id_trabajo=
+	id_consulta=
+	numero_secion=
+
+class deposito(Base):
+	id_persona=
+	id_trabajo=
+	id_secion=
+	abono=
+	precio=
+	id_deposito=
+	numero_deposito=
+
+class consulta(Base):
+	fecha_consulta=
+	hora=
+	id_persona=
+	id_consulta=
+	id_trabajo=
+	estado=
