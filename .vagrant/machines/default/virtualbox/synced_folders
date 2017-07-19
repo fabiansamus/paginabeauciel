@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/fabian/Documents/dinora","disabled":false,"__vagrantfile":true}}}
+{"rsync":{},"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/fabianDesiweb/Documents/paginabeauciel","disabled":false,"__vagrantfile":true}}}
