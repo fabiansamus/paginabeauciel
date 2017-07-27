@@ -20,6 +20,11 @@ class User(Base):
 	email = Column(String(250), nullable=False)
 	fecha_nacimiento = Column(Date, default=func.now())
 	telefono = Column(Integer, nullable=False)
+	celular =Column(Integer,nullable=False)
+	genero = Column(String(12),nullable=False)
+	tipo_identificacion = Column(String(8), nullable=True)
+	identificacion = Column(String(11), nullable=False)
+	direccion =Column(String(250), nullable=False)
 
 
 class Ficha(Base):
@@ -73,7 +78,7 @@ class Precio_trabajo(Base):
 class Deposito(Base):
 	__tablename__ = 'Deposito'
 
-	id = Column( primary_key=True)
+	id = Column(Integer, primary_key=True)
 	total = Column(Integer,nullable=False)
 	abono = Column(Integer, nullable=False)
 	pendiente = Column(Integer,nullable=False)
@@ -81,6 +86,12 @@ class Deposito(Base):
 	id_persona = Column(Integer, ForeignKey(User.id))
 	id_secion = Column(Integer, ForeignKey(Secion.id))
 
+class login(Base):
+	__tablename__ = "admin"
+
+	id = Column(Integer, primary_key=True)
+	a_name = Column(String(30), nullable=False)
+	A_password = Column(String(),nullable=False) 
 
 engine = create_engine('sqlite:///beauciel.db')
 

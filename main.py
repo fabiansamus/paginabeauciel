@@ -17,9 +17,32 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 from functools import wraps
 
 @app.route('/')
-@app.route('/Welcome')
 def init():
 	return render_template('init.html')
+
+@app.route('/Welcome')
+def test():
+	return render_template('descripcion.html')
+
+@app.route('/formulario')
+def formulario():
+	return render_template('formulario.html')
+
+@app.route("/add_user", methods=['POST'])
+def add_user():
+	print("en en tro en el perimetro")
+	my_data = request.form['mydata']
+	return jsonify("true")
+
+@app.route('/_add_numbers')
+def add_numbers():
+    a = request.args.get('a', 0, type=int)
+    b = request.args.get('b', 0, type=int)
+    return jsonify(result=a + b)
+
+@app.route('/add')
+def index():
+    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
