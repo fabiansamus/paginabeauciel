@@ -22,6 +22,7 @@
 // });
 
 $('.process_customer').bind('click', function() {
+  event.preventDefault();
   $('form input[name=user_input]').each(function (){
       var myinfo = $(this).val();
     })
