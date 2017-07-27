@@ -1,6 +1,6 @@
 import os 
 import hashlib
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, g
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, g, json
 from flask import session as secion
 from sqlalchemy import create_engine, or_, desc, asc
 from sqlalchemy.orm import sessionmaker
@@ -16,6 +16,10 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 from functools import wraps
 
+@app.route('/signUp')
+def signUp():
+    return render_template('singup.html')
+
 @app.route('/')
 def init():
 	return render_template('init.html')
@@ -28,21 +32,18 @@ def test():
 def formulario():
 	return render_template('formulario.html')
 
-@app.route("/add_user", methods=['POST'])
+@app.route("/add_user", methods=['GET'])
 def add_user():
-	print("en en tro en el perimetro")
-	my_data = request.form['mydata']
+	a = request.args.get('a')
+	b= request.args.get('b')
+	print(a,b)
 	return jsonify("true")
 
-@app.route('/_add_numbers')
-def add_numbers():
-    a = request.args.get('a', 0, type=int)
-    b = request.args.get('b', 0, type=int)
-    return jsonify(result=a + b)
-
-@app.route('/add')
-def index():
-    return render_template('home.html')
+@app.route('/signUpUser', methods=['POST'])
+def signUpUser():
+    user =  request.form['username'];
+    password = request.form['password'];
+    return json.dumps({'status':'OK','user':user,'pass':password});
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
