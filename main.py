@@ -18,7 +18,7 @@ from functools import wraps
 
 @app.route('/signUp')
 def signUp():
-    return render_template('singup.html')
+    return render_template('singup.html')AV
 
 @app.route('/')
 def init():
