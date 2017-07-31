@@ -3,7 +3,7 @@ populkar database con solo informacion solo por consola
 
 from sqlalquemy import create_engine
 from sqlalquemy.orm import sessionmaker
-from database_setup import User, Ficha, Trabajo, Secion, Ficha_secino, Precio_trabajo, Deposito
+from database_setup import User, Ficha, Trabajo, Secion, Ficha_secino, Precio_trabajo, Deposito, login
 
 engine = create_engine('sqlite:///beauciel.db')
 

@@ -1,28 +1,6 @@
 {% extends "init.html" %}
 {% block content %}
-<div class="container-fluid">
-<div class="row">
-	<div class="col-sm-3 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-    </div>
-        
+   <a href="/logout">click heere</a>    
 	<div class="col-sm-9  main">
 	    <div class="box box-primary">
 	        <div class="box-header">
@@ -32,7 +10,7 @@
 	            </h3>
 	        </div>
 	        <div class="box-body">
-	            <form id="search_form" name="search_form" enctype="multipart/form-data">
+	            <form class="form-formulario" action="/form" method="post" role="form">
 	                <div class="row">
 	                    <div class="col-md-3">
 	                        <label >Nombre<span class="asterisk">*</span>:</label>
@@ -86,7 +64,15 @@
 	                    <div class="col-md-9">
 	                        <label for="exampleInputText">Dirección:</label>
 	                        <input id="address" name="user_input" class="form-control input-sm uppercase" type="text">
-	                    </div>   
+	                    </div>
+	                    <div class="col-md-5"></div>
+	                <div class="col-md-1">
+	                    <button type="submit" id="process_customer" class="btn btn-primary pull-left btn-sm"><i class="fa fa-save"></i> Guardar</button>
+	                </div>
+	                <div class="col-md-1">
+	                    <button type="submit" id="cancel_customer" class="btn btn-danger pull-left btn-sm"><i class="fa fa-times-circle"></i> Cancelar</button>
+	                </div>
+	                <div class="col-md-5"></div>   
 	            </form>
 	            <p></p>
 	            <div class="col-md-12"><hr></div>	

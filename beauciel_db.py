@@ -86,12 +86,12 @@ class Deposito(Base):
 	id_persona = Column(Integer, ForeignKey(User.id))
 	id_secion = Column(Integer, ForeignKey(Secion.id))
 
-class login(Base):
+class Admin(Base):
 	__tablename__ = "admin"
 
 	id = Column(Integer, primary_key=True)
 	a_name = Column(String(30), nullable=False)
-	A_password = Column(String(),nullable=False) 
+	a_password = Column(String(),nullable=False) 
 
 engine = create_engine('sqlite:///beauciel.db')
 
